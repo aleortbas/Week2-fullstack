@@ -12,7 +12,7 @@
         <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
         <link rel="stylesheet" href="node_modules/font-awesome/css/font-awesome.min.css">
         <link rel="stylesheet" href="node_modules/bootstrap-social/bootstrap-social.css">       
-        <link rel="stylesheet" href="css\styles.css">
+        <link rel="stylesheet" href="css/style.css">
     
         <title>Ristorante Con Fusion</title>
 </head>
@@ -32,7 +32,7 @@
                     <li class="nav-item"><a class="nav-link" href="contactus.html"><span class="fa fa-address-card fa-lg"></span> Contact</a></li>
                  </ul>
                  <span class="navbar-text">
-                     <a data-toggle="modal" data-target="#loginModal">
+                     <a id="login-link">
                          <span class="fa fa-sign-in"></span>Login
                      </a>
                  </span>
@@ -91,9 +91,9 @@
                     <div class="form-group row">
                         <div class="col-sm-6">
                             <span class="navbar-text">
-                                <a data-toggle="modal" data-target="#ReserveModal" role="button">
-                                    <span id="reserve-button" class="btn btn-block nav-link btn-warning" 
-                                    style="width: 200px; color: white;">Login</span>
+                                <a id="reserve-button" role="button">
+                                    <span class="btn btn-block nav-link btn-warning" 
+                                    style="width: 200px; color: white;">Reserve Table</span>
                                 </a>
                             </span>
                         </div>
@@ -315,6 +315,12 @@
     <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
     <script>
         $(document).ready(function () {
+            $('#login-link').on('click',function () {
+                $('#loginModal').modal();
+            })
+            $('#reserve-button').on('click',function () {
+                $('#ReserveModal').modal();
+            })
             $('#mycarousel').carousel({ interval: 2000 });
             $('#carouselButton').click(function () {
                 if ($('#carouselButton').children('span').hasClass('fa-pause')) {
